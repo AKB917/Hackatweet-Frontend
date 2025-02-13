@@ -5,7 +5,7 @@ function Background() {
     return (
       <div>
     
-       <Image className={styles.Background} src="/images/background.png" alt="background" width={600} height={900}/>
+       <Image className={styles.Background} src="/images/background.jpg" alt="background" width={600} height={900}/>
 
       </div>
     );
