@@ -1,22 +1,19 @@
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
   min-height: 100vh;
-  padding: 4rem 0;
+  background-color: #151f2b;
 }
 
-.title {
-  line-height: 1.15;
-  font-size: 4rem;
+
+.Background {
+  border: 1px solid rgb(0, 255, 30);
+height: auto; 
+margin-top: 0;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover, .title a:focus, .title a:active {
-  text-decoration: underline;
+.Connexion { 
+height: auto; 
+margin-top: 0;
 }
