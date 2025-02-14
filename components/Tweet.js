@@ -5,7 +5,7 @@ import { faHeart, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 
-function Tweet() {
+function Tweet(props) {
 
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
@@ -32,18 +32,20 @@ function Tweet() {
 
         <div className={styles.profilcontainer}> 
         <Image src="/images/user.jpg" alt="logo" width={70} height={70}/>
-        <h1> John</h1>
-        <h3> @john48</h3>
+        <h1> {props.firstname}</h1>
+        <h3> {props.username}</h3>
+        <span>{props.date}</span>
         </div> 
 
         <div className={styles.tweetcontainer}> 
-            <p> YOU CAN'T SEE ME! </p>
-            <p> #cenation </p>
+            <p> {props.tweet} </p>
+
         </div>
 
         <div>
-        <span onClick={handlelike} className={styles.like}> <FontAwesomeIcon icon={faHeart} style={iconHeart} /> ({likeCount}) </span>
+        <span onClick={handlelike} className={styles.like}> <FontAwesomeIcon icon={faHeart} style={iconHeart} /> {props.like} </span>
         <span className={styles.trash}><FontAwesomeIcon icon={faTrash} /></span>
+        
         </div>
        
     </div>

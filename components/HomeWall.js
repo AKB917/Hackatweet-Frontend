@@ -13,16 +13,24 @@ import { useSelector } from 'react-redux';
 
 
 function HomeWall() {
+const [tweetData , setTweetData] = useState([])
 
-  useEffect(() => {
-    fetch('http://localhost:3000/tweets')
-      .then(response => response.json())
-      .then(data => {
-        
-      });
+useEffect(() => {
+  fetch('http://localhost:3000/tweets')
+    .then(response => response.json())
+    .then(data => { 
+      console.log(data); 
+
+      if (data.result && Array.isArray(data.tweets)) {
+        setTweetData(data.tweets); 
+        console.log(tweetData)
+      } 
+    })
   }, []);
-
-
+ console.log(tweetData)
+  const tweets = tweetData.map((data, i) => {
+    
+      return <Tweet key={i} {...data} />;})
 
 
 
