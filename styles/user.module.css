@@ -1,0 +1,27 @@
+.main {
+    /* border: 1px solid red; */
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    padding: 50px;
+  }
+  
+  .profilecontainer {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    margin-left: 20px;  
+    color: white; 
+  }
+
+  .logout{
+    border-radius: 25px;            
+    padding: 10px 20px;             
+    font-size: 15px;              
+    cursor: pointer;               
+    width: 100px; 
+    background-color: #3e9bf0;
+    color: white; 
+}

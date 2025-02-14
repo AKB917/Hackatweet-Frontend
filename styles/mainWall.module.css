@@ -1,0 +1,28 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: #151f2b;
+  }
+
+  .profil {
+ /* border: 1px solid rgb(189, 6, 230); */
+ height: 100vh;
+width: 400px;
+    
+  }
+
+  .homeWall{
+    border: 1px solid rgb(97, 97, 99);
+ height: 100vh;
+width: 800px;
+
+  }
+
+  .trends {
+    /* border: 1px solid rgb(230, 133, 6); */
+ height: 100vh;
+width: 400px;
+
+  }
