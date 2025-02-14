@@ -2,7 +2,7 @@ import styles from '../styles/tweet.module.css';
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrash} from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState ,  useSelector } from 'react';
 
 
 function Tweet(props) {
