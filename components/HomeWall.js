@@ -13,8 +13,11 @@ import { useSelector } from 'react-redux';
 
 
 function HomeWall() {
-const [tweetData , setTweetData] = useState([])
+const user = useSelector((state) => state.user.value);
+const [tweetData , setTweetData] = useState([]);
 
+
+//Get all tweets
 useEffect(() => {
   fetch('http://localhost:3000/tweets')
     .then(response => response.json())
@@ -23,7 +26,7 @@ useEffect(() => {
 
       if (data.result && Array.isArray(data.tweets)) {
         setTweetData(data.tweets); 
-        console.log(tweetData)
+        
       } 
     })
   }, []);
@@ -33,6 +36,21 @@ useEffect(() => {
       return <Tweet key={i} {...data} />;})
 
 
+      //Post a new tweet
+      fetch('http://localhost:3000/users/signin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: signInUsername, password: signInPassword }),
+      }).then(response => response.json())
+        .then(data => {
+          if (data.result) {
+            dispatch(login({ username: signInUsername, token: data.token }));
+            setSignInUsername('');
+            setSignInPassword('');
+            setIsModalVisible(false)
+          }
+        });
+    };
 
 
 
@@ -60,11 +78,11 @@ useEffect(() => {
       <div className={styles.main} >
         <h1 className={styles.home}>Home</h1>
         <input className={styles.textcontainer} type="text" placeholder="What's up?" />
-        <button className={styles.tweetbutton}> Tweet</button>
+        <button className={styles.tweetbutton} onClick={() => postTweet()}> Tweet</button>
       </div>
 
       <div>
-        <Tweet />
+        {tweets}
       </div>
 
 
