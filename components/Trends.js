@@ -1,7 +1,23 @@
 import styles from '../styles/HomeWall.module.css';
-
+import { useEffect, useState } from 'react';
 
 function Trends() {
+  const [hashtags, setHashtags] = useState([]);
+
+  useEffect(() => {
+    // Appel à la route pour récupérer les hashtags
+    fetch('http://localhost:3000/hashtag')
+      .then(response => response.json())
+      .then(data => {
+        if (data.result) {
+          setHashtags(data.hashtags);
+          console.log(data.hashtags)
+        } else {
+          console.error('No hashtags found');
+        }
+      })
+  }, []);
+
 
   return (
     <div >
@@ -11,17 +27,19 @@ function Trends() {
 
          <div>
             <div> 
-                <h2> #hackatweet </h2> 
-                <h2>  Tweets </h2> 
+                <h2>Hashtags</h2>
+      <ul>
+        {hashtags.map((hashtag, index) => (
+          <li key={index}>{hashtag}</li>
+        ))}
+      </ul>
             </div>
-            <div> 
-                <h2> #first </h2> 
-                <h2>  Tweets </h2> 
-            </div>
-            <div> 
-                <h2> #cenation </h2> 
-                <h2>  Tweets </h2> 
-            </div>
+            <h2>Hashtags</h2>
+      <ul>
+        {hashtags.map((hashtag, index) => (
+          <li key={index}>{hashtag}</li>
+        ))}
+      </ul>
          </div>
 
     </div>

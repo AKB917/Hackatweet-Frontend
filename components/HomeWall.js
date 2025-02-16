@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 
 
 function HomeWall() {
-const user = useSelector((state) => state.user.value);
+// const user = useSelector((state) => state.user.value);
 const [tweetData , setTweetData] = useState([]);
 
 
@@ -22,7 +22,7 @@ useEffect(() => {
   fetch('http://localhost:3000/tweets')
     .then(response => response.json())
     .then(data => { 
-      console.log(data); 
+      // console.log(data); 
 
       if (data.result && Array.isArray(data.tweets)) {
         setTweetData(data.tweets); 
@@ -30,28 +30,30 @@ useEffect(() => {
       } 
     })
   }, []);
- console.log(tweetData)
+//  console.log(tweetData)
   const tweets = tweetData.map((data, i) => {
     
       return <Tweet key={i} {...data} />;})
 
 
       //Post a new tweet
-      fetch('http://localhost:3000/users/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: signInUsername, password: signInPassword }),
-      }).then(response => response.json())
-        .then(data => {
-          if (data.result) {
-            dispatch(login({ username: signInUsername, token: data.token }));
-            setSignInUsername('');
-            setSignInPassword('');
-            setIsModalVisible(false)
-          }
-        });
-    };
+      // fetch(`http://localhost:3000/tweets/newTweet/${user.token}`, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ username: signInUsername, password: signInPassword }),
+      // }).then(response => response.json())
+      //   .then(data => {
+      //     if (data.result) {
+      //       dispatch(login({ username: signInUsername, token: data.token }));
+      //       setSignInUsername('');
+      //       setSignInPassword('');
+      //       setIsModalVisible(false)
+      //     }
+      //   });
+  
 
+   
+  
 
 
 
